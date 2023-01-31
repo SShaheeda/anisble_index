@@ -1,0 +1,8 @@
+---
+- hosts: node_servers
+  vars_files: 
+    - "../../group_vars/dev/main.yml"
+  roles:
+    - {role: ../../roles/index_role, when: index_role | bool}
+
+
