@@ -1,0 +1,21 @@
+---
+# tasks file for index_role
+- name: Install service
+  yum:
+    name: httpd
+    state: latest
+  become: true 
+
+- name: Create content
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+  become: true
+  
+- name: Run service
+  service:
+    name: httpd
+    state: started
+    enabled: true
+  become: true
+  
